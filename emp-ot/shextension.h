@@ -68,6 +68,7 @@ class SHOTExtension: public OTExtension<IO, OTNP, emp::SHOTExtension>{ public:
 			}
 			io->send_data(tmp, sizeof(block)*min(bsize,length-i));
 		}
+                io->sync();
 		delete[] qT;
 	}
 
@@ -82,6 +83,7 @@ class SHOTExtension: public OTExtension<IO, OTNP, emp::SHOTExtension>{ public:
 				if(r[i+j]) data[i+j] = xorBlocks(res[j], data[i+j]);
 			}
 		}
+                io->sync();
 		delete[] tT;
 	}
 	
